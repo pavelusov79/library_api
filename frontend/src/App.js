@@ -74,7 +74,7 @@ class App extends React.Component {
     .then(response => {
       this.setState(
         {
-          'authors': response.data
+          'authors': response.data.results
         }
       )
     }).catch(error => console.log(error))
@@ -82,7 +82,7 @@ class App extends React.Component {
     axios
     .get('http://127.0.0.1:8000/api/books/', {headers})
     .then(response => {
-      const books = response.data
+      const books = response.data.results
         this.setState(
           {
             'books': books
@@ -111,7 +111,7 @@ class App extends React.Component {
       this.load_data()
     }).catch(error => {
       console.log(error);
-      alert('Необходима авторизация. Введите правильный логин а пароль');
+      alert('Для добавления книги необходима авторизация.');
     })
   }
 
